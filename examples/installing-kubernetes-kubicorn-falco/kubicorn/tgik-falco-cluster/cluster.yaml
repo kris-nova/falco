@@ -1,0 +1,90 @@
+clusterAPI:
+  metadata:
+    creationTimestamp: null
+    name: tgik-falco-cluster
+  spec:
+    clusterNetwork:
+      dnsDomain: ""
+      pods:
+        cidrBlocks: null
+      services:
+        cidrBlocks: null
+    providerConfig: '{"cloud":"amazon","location":"us-west-2","SSH":{"metadata":{"creationTimestamp":null},"name":"tgik-falco-cluster","user":"ubuntu","identifier":"tgik-falco-cluster","publicKeyPath":"~/.ssh/id_rsa.pub","publicKeyData":"c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFDMzRRR0plMStNa2NpbW1RbWlSZ1ppWlg1eTdrL3o3WTRXMkgwV1RuaC9XaEtrVXZqUmdXY2QzQTBrVWI1TUlXOXpiUnpCRklKQkVCcm04SFJsRjRlblhSQUNyK3RWYkhVcUk1Sk8zeElFSEtXa0pIR2YwQmc0MytWVzhYLzdmdFA3UVBlNWltZXQ1VEwrQXFzQzYyV3EyYVVUWk1IYWcxUjZ4djRBR0hIUE54L2RiYlJuMjZNdHJjOEpoNFdKWHRZZmszQ0RVNDZ6SEhVVytWSW51RE1GbXRXNHlrZXlQcUJhS1F2cmpyK1hRbTE1dmZzcnRvYUJHNEp3ZUtPRC9MSkxzK3RpS3RzVk1mNTVzV1p4ZFBkSEx0TzEvUnNiK1orMXdTZVQ4bU0xdEJhbmlnU2h4bUplQzBnWjhIUU9PMk92ZUYwallVak1LNHdQd0dyeVBaa2YK","publicKeyFingerprint":"19:3e:90:6f:46:9d:43:b8:4e:c9:35:31:f7:1d:a8:5d","port":"22"},"network":{"metadata":{"name":"tgik-falco-cluster","creationTimestamp":null},"cidr":"10.0.0.0/16","identifier":"vpc-087ed4da0048b5268","type":"public","internetgw":{"metadata":{"creationTimestamp":null},"identifier":"igw-08c5e00bfd9bb282c"}},"values":{"metadata":{"creationTimestamp":null},"itemMap":{"INJECTEDMASTER":"10.0.0.32:443","INJECTEDPORT":"443","INJECTEDTOKEN":"17be90.e7127b1bcb1b0245"}},"kubernetesAPI":{"metadata":{"creationTimestamp":null},"endpoint":"54.218.217.11","port":"443"}}'
+  status:
+    apiEndpoints: null
+    errorMessage: ""
+    errorReason: ""
+    providerStatus: ""
+controlPlane:
+  metadata:
+    creationTimestamp: null
+  spec:
+    selector: {}
+    template:
+      metadata:
+        creationTimestamp: null
+      spec:
+        metadata:
+          creationTimestamp: null
+        providerConfig: ""
+        versions:
+          containerRuntime:
+            name: ""
+            version: ""
+          kubelet: ""
+  status:
+    replicas: 0
+machineSets:
+- metadata:
+    creationTimestamp: null
+    name: tgik-falco-cluster.master
+  spec:
+    selector: {}
+    template:
+      metadata:
+        creationTimestamp: null
+      spec:
+        metadata:
+          creationTimestamp: null
+        providerConfig: '{"serverPool":{"metadata":{"creationTimestamp":null},"identifier":"tgik-falco-cluster.master","type":"master","name":"tgik-falco-cluster.master","image":"ami-79873901","size":"t2.xlarge","instanceProfile":{"metadata":{"creationTimestamp":null},"name":"tgik-falco-cluster-KubicornMasterInstanceProfile","role":{"metadata":{"creationTimestamp":null},"name":"tgik-falco-cluster-KubicornMasterRole","policies":[{"name":"MasterPolicy","document":"{\n\t\t\t\t\t\t\t\t  \"Version\":
+          \"2012-10-17\",\n\t\t\t\t\t\t\t\t  \"Statement\": [\n\t\t\t\t\t\t\t\t\t
+          {\n\t\t\t\t\t\t\t\t\t\t\"Effect\": \"Allow\",\n\t\t\t\t\t\t\t\t\t\t\"Action\":
+          [\n\t\t\t\t\t\t\t\t\t\t   \"ec2:*\",\n\t\t\t\t\t\t\t\t\t\t   \"elasticloadbalancing:*\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetAuthorizationToken\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:BatchCheckLayerAvailability\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetDownloadUrlForLayer\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetRepositoryPolicy\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:DescribeRepositories\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:ListImages\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:BatchGetImage\",\n\t\t\t\t\t\t\t\t\t\t   \"autoscaling:DescribeAutoScalingGroups\",\n\t\t\t\t\t\t\t\t\t\t   \"autoscaling:UpdateAutoScalingGroup\"\n\t\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\t\"Resource\":
+          \"*\"\n\t\t\t\t\t\t\t\t\t }\n\t\t\t\t\t\t\t\t  ]\n\t\t\t\t\t\t\t\t}"}]}},"bootstrapScripts":["kubicorn/amazon_k8s_ubuntu_16.04_master.sh"],"subnets":[{"metadata":{"creationTimestamp":null},"identifier":"subnet-0f7ab4477038442bc","cidr":"10.0.0.0/24","zone":"us-west-2a","name":"tgik-falco-cluster.master"}],"firewalls":[{"metadata":{"creationTimestamp":null},"identifier":"sg-08dbcb217a92cb7ac","ingressRules":[{"metadata":{"creationTimestamp":null},"ingressFromPort":"22","ingressToPort":"22","ingressSource":"0.0.0.0/0","ingressProtocol":"tcp"},{"metadata":{"creationTimestamp":null},"ingressFromPort":"443","ingressToPort":"443","ingressSource":"0.0.0.0/0","ingressProtocol":"tcp"},{"metadata":{"creationTimestamp":null},"ingressFromPort":"0","ingressToPort":"65535","ingressSource":"10.0.100.0/24","ingressProtocol":"-1"},{"metadata":{"creationTimestamp":null},"ingressFromPort":"0","ingressToPort":"65535","ingressSource":"__self__","ingressProtocol":"-1"}],"name":"tgik-falco-cluster.master-external-5d5f416b-ab1b-473f-36ca-235f494b8ed0"}],"awsconfiguration":{}}}'
+        roles:
+        - Master
+        versions:
+          containerRuntime:
+            name: ""
+            version: ""
+          kubelet: ""
+  status:
+    replicas: 0
+- metadata:
+    creationTimestamp: null
+    name: tgik-falco-cluster.node
+  spec:
+    selector: {}
+    template:
+      metadata:
+        creationTimestamp: null
+      spec:
+        metadata:
+          creationTimestamp: null
+        providerConfig: '{"serverPool":{"metadata":{"creationTimestamp":null},"identifier":"tgik-falco-cluster.node","type":"node","name":"tgik-falco-cluster.node","image":"ami-79873901","size":"t2.medium","instanceProfile":{"metadata":{"creationTimestamp":null},"name":"tgik-falco-cluster-KubicornNodeInstanceProfile","role":{"metadata":{"creationTimestamp":null},"name":"tgik-falco-cluster-KubicornNodeRole","policies":[{"name":"NodePolicy","document":"{\n\t\t\t\t\t\t\t\t  \"Version\":
+          \"2012-10-17\",\n\t\t\t\t\t\t\t\t  \"Statement\": [\n\t\t\t\t\t\t\t\t\t
+          {\n\t\t\t\t\t\t\t\t\t\t\"Effect\": \"Allow\",\n\t\t\t\t\t\t\t\t\t\t\"Action\":
+          [\n\t\t\t\t\t\t\t\t\t\t   \"ec2:Describe*\",\n\t\t\t\t\t\t\t\t\t\t   \"ec2:AttachVolume\",\n\t\t\t\t\t\t\t\t\t\t   \"ec2:DetachVolume\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetAuthorizationToken\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:BatchCheckLayerAvailability\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetDownloadUrlForLayer\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:GetRepositoryPolicy\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:DescribeRepositories\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:ListImages\",\n\t\t\t\t\t\t\t\t\t\t   \"ecr:BatchGetImage\",\n\t\t\t\t\t\t\t\t\t\t   \"autoscaling:DescribeAutoScalingGroups\",\n\t\t\t\t\t\t\t\t\t\t   \"autoscaling:UpdateAutoScalingGroup\"\n\t\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\t\"Resource\":
+          \"*\"\n\t\t\t\t\t\t\t\t\t }\n\t\t\t\t\t\t\t\t  ]\n\t\t\t\t\t\t\t\t}"}]}},"bootstrapScripts":["kubicorn/amazon_k8s_ubuntu_16.04_node.sh"],"subnets":[{"metadata":{"creationTimestamp":null},"identifier":"subnet-0a893af49d2e80695","cidr":"10.0.100.0/24","zone":"us-west-2b","name":"tgik-falco-cluster.node"}],"firewalls":[{"metadata":{"creationTimestamp":null},"identifier":"sg-04f744a2d9cb7e7bd","ingressRules":[{"metadata":{"creationTimestamp":null},"ingressFromPort":"22","ingressToPort":"22","ingressSource":"0.0.0.0/0","ingressProtocol":"tcp"},{"metadata":{"creationTimestamp":null},"ingressFromPort":"0","ingressToPort":"65535","ingressSource":"10.0.0.0/24","ingressProtocol":"-1"},{"metadata":{"creationTimestamp":null},"ingressFromPort":"0","ingressToPort":"65535","ingressSource":"__self__","ingressProtocol":"-1"}],"name":"tgik-falco-cluster.node-external-5d5f416b-c63d-d83e-4f27-c2953786eda6"}],"awsconfiguration":{}}}'
+        roles:
+        - Node
+        versions:
+          containerRuntime:
+            name: ""
+            version: ""
+          kubelet: ""
+  status:
+    replicas: 0
+metadata:
+  creationTimestamp: null
+name: tgik-falco-cluster
